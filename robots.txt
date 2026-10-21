@@ -1,0 +1,4 @@
+# robots.txt - izinkan semua mesin pencari. Ganti domain jika berbeda.
+User-agent: *
+Allow: /
+Sitemap: https://tangansigap.my.id/sitemap.xml

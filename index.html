@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  INDEX.HTML - Halaman utama "Tangan Sigap" (jasa serabutan)
+  ============================================================
+  PANDUAN PERAWATAN CEPAT:
+  1. Ganti nama brand      -> cari "Tangan Sigap" (Ctrl+F) lalu ganti semua.
+  2. Ganti domain          -> cari "https://tangansigap.my.id" (canonical, og:url, JSON-LD).
+  3. Ganti nomor WhatsApp  -> HANYA di script.js (bagian CONFIG), bukan di sini.
+  4. Ganti wilayah layanan -> cari "[WILAYAH]" lalu isi nama kota/kecamatan/perumahan.
+  5. Ganti harga/testimoni -> lihat komentar di tiap section di bawah.
+  File lain: style.css (tampilan), script.js (perilaku), robots.txt & sitemap.xml (SEO).
+-->
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== SEO DASAR ===== -->
+  <!-- Title: maks ~60 karakter. Taruh kata kunci utama di depan. -->
+  <title>Jasa Serabutan Perumahan: Ojek, Antar Barang, Jaga Rumah | Tangan Sigap</title>
+  <!-- Description: maks ~155 karakter, ini yang tampil di hasil Google. -->
+  <meta name="description" content="Jasa serabutan untuk warga perumahan: ojek, antar barang, bersih rumput, jaga rumah kosong, nyalakan lampu, kasih makan hewan, bersihkan rumah. Pesan lewat WhatsApp.">
+  <meta name="keywords" content="jasa serabutan, jasa jaga rumah kosong, jasa bersih rumput, jasa antar barang, ojek perumahan, jasa bersih rumah, jasa kasih makan kucing">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Tangan Sigap">
+  <meta name="theme-color" content="#fff6b8">
+  <!-- Canonical: ganti dengan domain asli kamu. -->
+  <link rel="canonical" href="https://tangansigap.my.id/">
+
+  <!-- ===== OPEN GRAPH & TWITTER (tampilan saat link dibagikan di WA/FB/IG) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="Tangan Sigap">
+  <meta property="og:title" content="Tangan Sigap: Jasa Serabutan untuk Warga Perumahan">
+  <meta property="og:description" content="Ojek, antar barang, bersih rumput, jaga rumah, sampai kasih makan hewan. Pesan mudah lewat WhatsApp.">
+  <meta property="og:url" content="https://tangansigap.my.id/">
+  <!-- Tambahkan gambar 1200x630 bernama og-image.jpg lalu aktifkan dua baris di bawah: -->
+  <!-- <meta property="og:image" content="https://tangansigap.my.id/og-image.jpg"> -->
+  <!-- <meta name="twitter:image" content="https://tangansigap.my.id/og-image.jpg"> -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon emoji (tanpa file gambar). Ganti dengan favicon.ico jika sudah punya. -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%9D%3C/text%3E%3C/svg%3E">
+
+  <!-- Font: Plus Jakarta Sans (Google Fonts). Ada fallback di style.css jika gagal dimuat. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ===== DATA TERSTRUKTUR (JSON-LD) =====
+       Membantu Google memahami bisnis kamu. Isi [WILAYAH] dan domain. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Tangan Sigap",
+    "url": "https://tangansigap.my.id/",
+    "description": "Jasa serabutan untuk warga perumahan subsidi: ojek, antar barang, bersih rumput, jaga rumah, nyalakan lampu, kasih makan hewan peliharaan, bersihkan rumah.",
+    "areaServed": "[WILAYAH]",
+    "priceRange": "Rp",
+    "availableLanguage": "id",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Layanan Tangan Sigap",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Ojek dan antar jemput"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Antar barang"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bersih rumput dan halaman"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Jaga rumah kosong"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Nyalakan dan matikan lampu"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kasih makan hewan peliharaan"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Bersihkan rumah"}}
+      ]
+    }
+  }
+  </script>
+  <!-- FAQ schema: isinya HARUS sama dengan section FAQ di bawah. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Bagaimana cara memesan?", "acceptedAnswer": {"@type": "Answer", "text": "Klik tombol WhatsApp atau isi formulir pesanan. Pesan otomatis terbuka di WhatsApp, tinggal kirim."}},
+      {"@type": "Question", "name": "Apakah bisa menjaga rumah kosong yang ditinggal lama?", "acceptedAnswer": {"@type": "Answer", "text": "Bisa. Petugas mengecek rumah, menyalakan lampu, menyiram tanaman, dan mengirim foto laporan sesuai jadwal yang disepakati."}},
+      {"@type": "Question", "name": "Berapa biayanya?", "acceptedAnswer": {"@type": "Answer", "text": "Biaya mengikuti jenis dan lama pekerjaan. Kirim kebutuhanmu lewat WhatsApp untuk mendapat harga sebelum petugas datang."}},
+      {"@type": "Question", "name": "Wilayah mana saja yang dilayani?", "acceptedAnswer": {"@type": "Answer", "text": "Kami melayani perumahan di [WILAYAH]. Hubungi kami untuk memastikan perumahanmu terjangkau."}}
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip" href="#layanan">Lewati ke layanan</a>
+
+  <!-- ===================== HEADER / NAVIGASI =====================
+       Link menu memakai id section di bawah. Jika id section diubah, ubah juga href di sini. -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Menu utama">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">🤝</span> Tangan Sigap</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Buka menu">☰</button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#layanan">Layanan</a></li>
+        <li><a href="#alasan">Kenapa Kami</a></li>
+        <li><a href="#testimoni">Testimoni</a></li>
+        <li><a href="#faq">Tanya Jawab</a></li>
+        <li><a class="btn btn-dark" href="#pesan" data-wa-link>Pesan Sekarang</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO =====================
+         Judul H1 hanya boleh ada SATU di seluruh halaman (penting untuk SEO). -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Rumah terurus, kamu tenang. Semua kerjaan kecil kami bantu.</h1>
+          <p>Jasa serabutan untuk warga perumahan: ojek, antar barang, bersih rumput, jaga rumah kosong, sampai kasih makan kucing. Cukup chat, petugas datang.</p>
+          <div class="hero-actions">
+            <a class="btn btn-dark" href="#pesan" data-wa-link>Chat WhatsApp</a>
+            <a class="btn btn-light" href="#layanan">Lihat layanan</a>
+          </div>
+          <p class="hero-note">Dibalas cepat, harga disepakati sebelum kerja.</p>
+        </div>
+
+        <!-- Kartu kanan hero. Ganti emoji/teks sesuka hati, atau ganti dengan <img> foto tim kamu. -->
+        <div class="hero-card" aria-hidden="true">
+          <div class="chip chip-top">⭐ 4,9 &middot; Tetangga puas</div>
+          <div class="hero-emoji">🏠🌿🐈</div>
+          <div class="chip chip-bottom">✅ Laporan foto setelah selesai</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ANGKA KEPERCAYAAN =====================
+         PENTING: ganti angka ini dengan data asli kamu. Jangan pasang angka palsu. -->
+    <section class="trust container" aria-labelledby="trust-title">
+      <h2 id="trust-title">Dipercaya tetangga sekitar</h2>
+      <p class="section-sub">Warga perumahan sering sibuk kerja atau meninggalkan rumah kosong. Kami hadir supaya urusan rumah tetap beres.</p>
+      <div class="stats">
+        <div class="stat stat-yellow"><strong>0+</strong><span>Pekerjaan selesai (isi angka)</span></div>
+        <div class="stat stat-pink"><strong>100%</strong><span>Harga jelas di awal</span></div>
+        <div class="stat stat-green"><strong>7</strong><span>Jenis layanan</span></div>
+        <div class="stat stat-blue"><strong>1 chat</strong><span>Cukup lewat WhatsApp</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== LAYANAN =====================
+         Tambah layanan baru: salin satu <article class="card">, ubah ikon, judul, deskripsi,
+         dan data-service (nama ini ikut masuk ke pesan WhatsApp).
+         Jangan lupa tambahkan juga ke <select> di form #pesan dan ke JSON-LD di atas. -->
+    <section class="services container" id="layanan" aria-labelledby="layanan-title">
+      <h2 id="layanan-title">Layanan serabutan untuk rumahmu</h2>
+      <p class="section-sub">Pilih yang kamu butuhkan. Tidak ada di daftar? Tanyakan saja, kami usahakan.</p>
+      <div class="cards">
+        <article class="card"><span class="icon i-yellow" aria-hidden="true">🛵</span><h3>Ojek &amp; antar jemput</h3><p>Antar ke pasar, sekolah, atau stasiun dengan tarif jelas.</p><a class="btn btn-sm" href="#pesan" data-service="Ojek & antar jemput">Pesan</a></article>
+        <article class="card"><span class="icon i-blue" aria-hidden="true">📦</span><h3>Antar barang</h3><p>Paket, galon, gas, atau belanjaan sampai depan pintu.</p><a class="btn btn-sm" href="#pesan" data-service="Antar barang">Pesan</a></article>
+        <article class="card"><span class="icon i-green" aria-hidden="true">🌿</span><h3>Bersih rumput</h3><p>Halaman dan pagar rapi, sampah daun dibawa pergi.</p><a class="btn btn-sm" href="#pesan" data-service="Bersih rumput">Pesan</a></article>
+        <article class="card"><span class="icon i-pink" aria-hidden="true">🔑</span><h3>Jaga rumah kosong</h3><p>Cek berkala, siram tanaman, dan kirim foto laporan.</p><a class="btn btn-sm" href="#pesan" data-service="Jaga rumah kosong">Pesan</a></article>
+        <article class="card"><span class="icon i-yellow" aria-hidden="true">💡</span><h3>Nyalakan lampu</h3><p>Lampu menyala sore, mati pagi. Rumah tak terlihat kosong.</p><a class="btn btn-sm" href="#pesan" data-service="Nyalakan lampu">Pesan</a></article>
+        <article class="card"><span class="icon i-green" aria-hidden="true">🐈</span><h3>Kasih makan hewan</h3><p>Kucing, ayam, atau ikan tetap kenyang saat kamu pergi.</p><a class="btn btn-sm" href="#pesan" data-service="Kasih makan hewan peliharaan">Pesan</a></article>
+        <article class="card"><span class="icon i-blue" aria-hidden="true">🧹</span><h3>Bersihkan rumah</h3><p>Sapu, pel, kamar mandi, dan dapur sampai bersih.</p><a class="btn btn-sm" href="#pesan" data-service="Bersihkan rumah">Pesan</a></article>
+        <article class="card"><span class="icon i-pink" aria-hidden="true">🛠️</span><h3>Kerjaan lain</h3><p>Pasang lampu, angkat barang, atau titip urus. Tanyakan dulu.</p><a class="btn btn-sm" href="#pesan" data-service="Kerjaan lain">Pesan</a></article>
+      </div>
+    </section>
+
+    <!-- ===================== KENAPA KAMI ===================== -->
+    <section class="why container" id="alasan" aria-labelledby="alasan-title">
+      <div class="why-box">
+        <h2 id="alasan-title">Alasan warga memilih kami</h2>
+        <ul class="ticks">
+          <li>Petugas warga sekitar, kenal lingkungan</li>
+          <li>Harga disepakati sebelum mulai kerja</li>
+          <li>Foto laporan untuk rumah yang ditinggal</li>
+          <li>Bisa harian, mingguan, atau bulanan</li>
+        </ul>
+        <a class="btn btn-dark" href="#pesan" data-wa-link>Tanya langsung</a>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONI =====================
+         PENTING: ini CONTOH. Ganti dengan testimoni pelanggan asli (minta izin dulu). -->
+    <section class="reviews container" id="testimoni" aria-labelledby="testi-title">
+      <h2 id="testi-title">Kata tetangga yang sudah mencoba</h2>
+      <div class="review-grid">
+        <blockquote class="review"><p>Rumah saya kosong dua minggu, tetap terurus dan ada foto tiap hari. Tenang sekali.</p><footer>Contoh: Bu Rina, Blok A</footer></blockquote>
+        <blockquote class="review"><p>Kucing saya dikasih makan tepat waktu saat mudik. Hasilnya memuaskan.</p><footer>Contoh: Pak Dedi, Blok C</footer></blockquote>
+        <blockquote class="review"><p>Halaman yang tadinya penuh rumput liar sekarang rapi. Harganya pas di kantong.</p><footer>Contoh: Mbak Sari, Blok F</footer></blockquote>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ =====================
+         Jika diubah, ubah juga FAQPage JSON-LD di bagian <head>. -->
+    <section class="faq container" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Pertanyaan yang sering ditanyakan</h2>
+      <details><summary>Bagaimana cara memesan?</summary><p>Klik tombol WhatsApp atau isi formulir pesanan. Pesan otomatis terbuka di WhatsApp, tinggal kirim.</p></details>
+      <details><summary>Apakah bisa menjaga rumah kosong yang ditinggal lama?</summary><p>Bisa. Petugas mengecek rumah, menyalakan lampu, menyiram tanaman, dan mengirim foto laporan sesuai jadwal yang disepakati.</p></details>
+      <details><summary>Berapa biayanya?</summary><p>Biaya mengikuti jenis dan lama pekerjaan. Kirim kebutuhanmu lewat WhatsApp untuk mendapat harga sebelum petugas datang.</p></details>
+      <details><summary>Wilayah mana saja yang dilayani?</summary><p>Kami melayani perumahan di [WILAYAH]. Hubungi kami untuk memastikan perumahanmu terjangkau.</p></details>
+    </section>
+
+    <!-- ===================== FORM PESAN =====================
+         Form ini tidak mengirim ke server. Script.js menyusun pesan lalu membuka WhatsApp. -->
+    <section class="cta container" id="pesan" aria-labelledby="pesan-title">
+      <h2 id="pesan-title">Butuh bantuan hari ini? Cukup satu chat.</h2>
+      <form id="orderForm" class="order-form">
+        <label>Nama<input type="text" name="nama" autocomplete="name" required placeholder="Nama kamu"></label>
+        <label>Layanan
+          <select name="layanan" id="layananSelect" required>
+            <option>Ojek & antar jemput</option>
+            <option>Antar barang</option>
+            <option>Bersih rumput</option>
+            <option>Jaga rumah kosong</option>
+            <option>Nyalakan lampu</option>
+            <option>Kasih makan hewan peliharaan</option>
+            <option>Bersihkan rumah</option>
+            <option>Kerjaan lain</option>
+          </select>
+        </label>
+        <label>Alamat / blok rumah<input type="text" name="alamat" required placeholder="Contoh: Blok B No. 12"></label>
+        <label>Catatan (opsional)<textarea name="catatan" rows="3" placeholder="Kapan dan berapa lama?"></textarea></label>
+        <button class="btn btn-dark" type="submit">Kirim lewat WhatsApp</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Tangan Sigap</strong>: jasa serabutan perumahan di [WILAYAH].</p>
+      <p>&copy; <span id="year">2026</span> Tangan Sigap. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- Tombol WhatsApp melayang (link diisi otomatis oleh script.js) -->
+  <a class="wa-float" href="#pesan" data-wa-link aria-label="Chat via WhatsApp">💬</a>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
