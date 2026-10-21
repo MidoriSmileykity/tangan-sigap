@@ -85,12 +85,15 @@ section { padding: 3rem 0; }
 .stat-green { background: var(--green); }   .stat-blue { background: var(--blue); }
 
 /* ===== 7. LAYANAN ===== */
-.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
-.card { background: #f7f8f9; border-radius: var(--radius); padding: 1.3rem; display: flex; flex-direction: column; align-items: flex-start; }
-.card p { color: var(--muted); font-size: .9rem; flex: 1; }
-.icon { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; font-size: 1.6rem; margin-bottom: .8rem; }
-.i-yellow { background: var(--yellow); } .i-green { background: var(--green); }
-.i-pink { background: var(--pink); }     .i-blue { background: var(--blue); }
+.carousel { position: relative; margin-top: 1.5rem; }
+.cards { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: .5rem .25rem 1rem; scrollbar-width: none; }
+.cards::-webkit-scrollbar { display: none; }
+/* flex-basis = lebar kartu. 4 kartu terlihat di desktop. */
+.card { flex: 0 0 calc((100% - 3rem) / 4); scroll-snap-align: start; background: #f7f8f9; border-radius: var(--radius); padding: 1.3rem; display: flex; flex-direction: column; align-items: flex-start; }
+.car-btn { position: absolute; top: 45%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--ink); background: #fff; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+.car-btn:disabled { opacity: .3; cursor: default; }
+.car-prev { left: -14px; }
+.car-next { right: -14px; }
 
 /* ===== 8. KENAPA KAMI ===== */
 .why-box { background: var(--green); border-radius: 28px; padding: 2.5rem; }
@@ -118,14 +121,12 @@ section { padding: 3rem 0; }
 
 /* ===== 12. RESPONSIF ===== */
 @media (max-width: 900px) {
-  .cards, .stats { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(2, 1fr); }   /* hapus ".cards," di depannya */
+  .card { flex-basis: calc((100% - 1rem) / 2); }      /* 2 kartu terlihat */
   .review-grid { grid-template-columns: 1fr; }
   .hero-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 720px) {
-  .nav-toggle { display: block; }
-  .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: #fff; padding: 1rem; gap: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.1); }
-  .nav-menu.open { display: flex; }
+  .car-prev { left: 4px; } .car-next { right: 4px; }  /* tambahkan ke aturan 720px yang sudah ada */
 }
-@media (max-width: 480px) { .cards { grid-template-columns: 1fr; } }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+@media (max-width: 480px) { .card { flex-basis: 85%; } }  /* ganti aturan ".cards" yang lama */
