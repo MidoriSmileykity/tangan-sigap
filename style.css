@@ -119,14 +119,31 @@ section { padding: 3rem 0; }
 /* ===== 11. TOMBOL WA MELAYANG ===== */
 .wa-float { position: fixed; right: 18px; bottom: 18px; width: 56px; height: 56px; border-radius: 50%; background: var(--wa); color: #fff; font-size: 1.6rem; display: grid; place-items: center; text-decoration: none; box-shadow: 0 6px 18px rgba(0,0,0,.25); z-index: 60; }
 
-/* ===== 12. RESPONSIF ===== */
+/* ===== 12. RESPONSIF (HP/tablet) ===== */
+
+/* Tablet: 2 kartu layanan terlihat */
 @media (max-width: 900px) {
-  .stats { grid-template-columns: repeat(2, 1fr); }   /* hapus ".cards," di depannya */
-  .card { flex-basis: calc((100% - 1rem) / 2); }      /* 2 kartu terlihat */
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .card { flex-basis: calc((100% - 1rem) / 2); }
   .review-grid { grid-template-columns: 1fr; }
   .hero-grid { grid-template-columns: 1fr; }
 }
+
+/* HP: menu hamburger + panah carousel masuk ke dalam layar */
 @media (max-width: 720px) {
-  .car-prev { left: 4px; } .car-next { right: 4px; }  /* tambahkan ke aturan 720px yang sudah ada */
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: #fff; padding: 1rem; gap: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,.1); }
+  .nav-menu.open { display: flex; }
+  .car-prev { left: 4px; }
+  .car-next { right: 4px; }
 }
-@media (max-width: 480px) { .card { flex-basis: 85%; } }  /* ganti aturan ".cards" yang lama */
+
+/* HP kecil: kartu layanan 85% lebar supaya kartu berikutnya sedikit terlihat */
+@media (max-width: 480px) {
+  .card { flex-basis: 85%; }
+}
+
+/* Hormati pengguna yang mematikan animasi di perangkatnya */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
