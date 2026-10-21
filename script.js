@@ -75,6 +75,26 @@ if (toggle && menu) {
   });
 }
 
+/* ===== CAROUSEL LAYANAN =====
+   Tombol geser sebesar satu kartu. Tombol mati di ujung kiri/kanan. */
+const track = document.getElementById("cards");
+const prev = document.querySelector(".car-prev");
+const next = document.querySelector(".car-next");
+if (track && prev && next) {
+  const step = function () {
+    return track.querySelector(".card").offsetWidth + 16; /* lebar kartu + jarak (gap) */
+  };
+  const refresh = function () {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  };
+  prev.addEventListener("click", function () { track.scrollBy({ left: -step(), behavior: "smooth" }); });
+  next.addEventListener("click", function () { track.scrollBy({ left: step(), behavior: "smooth" }); });
+  track.addEventListener("scroll", refresh);
+  window.addEventListener("resize", refresh);
+  refresh();
+}
+
 /* ===== 6. TAHUN FOOTER ===== */
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
