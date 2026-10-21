@@ -13,7 +13,7 @@
    phone: format internasional TANPA tanda + atau 0 di depan.
    Contoh nomor 0812-3456-7890 menjadi 6281234567890 */
 const CONFIG = {
-  phone: "6281234567890",
+  phone: "6289654082548",
   greeting: "Halo Tangan Sigap, saya mau tanya jasa serabutan."
 };
 
